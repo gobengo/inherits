@@ -1,24 +1,24 @@
 define([], function () {
 
 
-	/**
-	 * sub should prototypally inherit from base
-	 * @param sub {function} Subclass constructor
-	 * @param base {function} Base class constructor
-	 */
-	function inherits (sub, base) {
-		var Fn = function(){};
+    /**
+     * sub should prototypally inherit from base
+     * @param sub {function} Subclass constructor
+     * @param base {function} Base class constructor
+     */
+    function inherits (sub, base) {
+        var Fn = function(){};
         Fn.prototype = base.prototype;
         sub.prototype = new Fn();
         sub.prototype.constructor = sub;
-	}
+    }
 
 
-	/**
-	 * sub should parasitically inherit from base
-	 * that is, we should pluck values from base.prototype onto sub.prototype
-	 */
-	inherits.parasitically = function (sub, base) {
+    /**
+     * sub should parasitically inherit from base
+     * that is, we should pluck values from base.prototype onto sub.prototype
+     */
+    inherits.parasitically = function (sub, base) {
         var baseKeys = inherits.keys(base.prototype),
             baseKeysLength = baseKeys.length,
             methodName;
@@ -28,10 +28,10 @@ define([], function () {
                 sub.prototype[methodName] = base.prototype[methodName];
             }
         }
-	};
+    };
 
 
-	/**
+    /**
      * Object.keys shim
      */
     inherits.keys = Object.keys || (function () {
@@ -69,5 +69,5 @@ define([], function () {
         };
     })();
 
-	return inherits;
+    return inherits;
 });
