@@ -1,6 +1,6 @@
 {
   "name": "inherits",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": [
     "./src/main.js"
   ],
@@ -8,6 +8,7 @@
     "requirejs": "~2.1.5"
   },
   "devDependencies": {
-    "jasmine": "*"
+    "jasmine": "*",
+    "cajon": "~0.2.4"
   }
 }
